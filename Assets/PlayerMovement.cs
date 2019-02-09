@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
         //sets gravity
         //rb.useGravity = false;
         //sets forces in x, y, z direction respectively
-        //rb.AddForce(0, 200, 500);
+        rb.AddForce(0, 200, 500);
     }
 
 
@@ -28,13 +28,14 @@ public class PlayerMovement : MonoBehaviour
         //Add a forward force on y axis
         rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
+        //ForceMode.VelocityChange will directly change the velocity : helps in smooth controls
         if(Input.GetKey("d"))
         {
-            rb.AddForce(slidewaysForce * Time.deltaTime, 0, 0);
+            rb.AddForce(slidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
         if (Input.GetKey("a"))
         {
-            rb.AddForce(-slidewaysForce * Time.deltaTime, 0, 0);
+            rb.AddForce(-slidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
     }
