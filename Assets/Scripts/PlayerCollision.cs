@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public PlayerMovement movement;
+    //public GameManager gameManager;
+
     //is called whenever player collides with something, player should have rigidbody and collider added to it 
     void OnCollisionEnter(Collision collisionInfo)
     {
@@ -14,6 +16,8 @@ public class PlayerCollision : MonoBehaviour
         {
             Debug.Log("We hit an Obstacle!");
             movement.enabled = false;
+
+            FindObjectOfType<GameManager>().EndGame();
         }
     }
 }
