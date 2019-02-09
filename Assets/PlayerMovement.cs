@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     //reference to Rigidbody component
     public Rigidbody rb;
 
+    public float forwardForce = 200f;
+    public float slidewaysForce = 500;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Add force of 2000 on y axis
-        rb.AddForce(0, 0, 200 * Time.deltaTime);
+        //Add a forward force on y axis
+        rb.AddForce(0, 0, forwardForce * Time.deltaTime);
+
+        if(Input.GetKey("d"))
+        {
+            rb.AddForce(slidewaysForce * Time.deltaTime, 0, 0);
+        }
+        if (Input.GetKey("a"))
+        {
+            rb.AddForce(-slidewaysForce * Time.deltaTime, 0, 0);
+        }
+
     }
 }
