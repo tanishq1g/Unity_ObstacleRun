@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
 
     public float forwardForce = 200f;
-    public float slidewaysForce = 500;
+    public float slidewaysForce = 500f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
         //sets gravity
         //rb.useGravity = false;
         //sets forces in x, y, z direction respectively
-        rb.AddForce(0, 200, 500);
+        //rb.AddForce(0, 200, 500);
     }
 
 
